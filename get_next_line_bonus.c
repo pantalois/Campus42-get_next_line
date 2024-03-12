@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 18:06:10 by loigonza          #+#    #+#             */
-/*   Updated: 2024/03/12 11:14:32 by loigonza         ###   ########.fr       */
+/*   Created: 2024/03/11 18:16:06 by loigonza          #+#    #+#             */
+/*   Updated: 2024/03/12 11:14:29 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*free_static(char **stash)
 {
@@ -105,19 +105,19 @@ char	*clean_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char		*stash = NULL;
+	static char		*stash[OPEN_MAX];
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
-	if (!stash || !(ft_strchr(stash, '\n')))
-		stash = ft_read_file(fd, stash);
-	if (!stash)
+	if (!stash[fd] || !(ft_strchr(stash[fd], '\n')))
+		stash[fd] = ft_read_file(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	line = read_line(stash);
+	line = read_line(stash[fd]);
 	if (!line)
-		return (free_static(&stash));
-	stash = clean_stash(stash);
+		return (free_static(&stash[fd]));
+	stash[fd] = clean_stash(stash[fd]);
 	return (line);
 }
 

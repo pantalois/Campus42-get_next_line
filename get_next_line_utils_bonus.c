@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 17:30:15 by loigonza          #+#    #+#             */
-/*   Updated: 2024/03/11 20:00:14 by loigonza         ###   ########.fr       */
+/*   Created: 2024/03/11 18:34:48 by loigonza          #+#    #+#             */
+/*   Updated: 2024/03/11 19:41:24 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *line)
 {

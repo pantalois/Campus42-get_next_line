@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 17:42:58 by loigonza          #+#    #+#             */
-/*   Updated: 2024/03/11 19:21:28 by loigonza         ###   ########.fr       */
+/*   Created: 2024/03/11 18:32:26 by loigonza          #+#    #+#             */
+/*   Updated: 2024/03/11 19:23:18 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 15
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 # include <unistd.h>
 
 char	*get_next_line(int fd);
