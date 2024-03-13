@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:34:48 by loigonza          #+#    #+#             */
-/*   Updated: 2024/03/11 19:41:24 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:00:19 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,28 @@ size_t	ft_strlen(const char *line)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	idx;
-	size_t	idx_ptr;
-	size_t	s1_len;
-	size_t	s2_len;
+	size_t	i;
+	size_t	j;
 	char	*ptr;
 
-	if (s1 || s2)
+	if (!s1)
 	{
-		s1_len = ft_strlen(s1);
-		s2_len = ft_strlen(s2);
-		idx_ptr = 0;
-		ptr = malloc(sizeof(char) * (s1_len + s2_len + 1));
-		if (!ptr)
-			return (free(s1), NULL);
-		idx = -1;
-		while (++idx < s1_len)
-			ptr[idx_ptr++] = s1[idx];
-		idx = -1;
-		while (s2[++idx] != '\0')
-			ptr[idx_ptr++] = s2[idx];
-		ptr[idx_ptr] = '\0';
-		return (free(s1), ptr);
+		s1 = malloc(1 * sizeof(char));
+		if (!s1)
+			return (NULL);
+		s1[0] = '\0';
 	}
-	return (NULL);
+	j = 0;
+	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!ptr)
+		return (free(s1), NULL);
+	i = -1;
+	while (s1[++i] != '\0')
+		ptr[i] = s1[i];
+	while (s2[j] != '\0')
+		ptr[i++] = s2[j++];
+	ptr[i] = '\0';
+	return (free(s1), ptr);
 }
 
 char	*ft_strchr(const char *s, int c)
